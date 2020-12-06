@@ -13,7 +13,7 @@ class DecodeView:
     def __init__(self,):
         super(DecodeView, self).__init__()
 
-    def handle_decode_action(self, file_path: str):
+    def handle_decode_action(self, file_path: str, *args):
         file_extension = file_path.split("/")[-1].split(".")[-1] == "greed_compressed"
         
         if not file_extension:

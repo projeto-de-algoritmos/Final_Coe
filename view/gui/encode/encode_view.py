@@ -13,7 +13,7 @@ class EncodeView:
     def __init__(self,):
         super(EncodeView, self).__init__()
 
-    def handle_encode_action(self, file_path: str):
+    def handle_encode_action(self, file_path: str, *args):
         try:
             file = Commons.get_file(file_path=file_path, encode_type='r')
         except Exception as ex:

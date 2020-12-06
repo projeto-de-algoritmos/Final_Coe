@@ -9,7 +9,7 @@ decode = Decode()
 class DecodeCommons:
 
     @staticmethod
-    def get_decoded_text(file):
+    def get_decoded_text(file) -> str:
         decCont = BitArray()
         for line in file:
             decCont.append(line)
