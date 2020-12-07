@@ -1,4 +1,4 @@
-# Greed Compressor
+# Coé
 
 **Conteúdo da Disciplina**: Trabalho final<br>
 **Tema**: Compressão de dados & Diff
@@ -13,7 +13,7 @@
 
 __Coé__ faz compressão e descompressão de arquivos _txt_ além de adicionar uma nova funcionalidade ao [Greed Compressor](https://github.com/projeto-de-algoritmos/Greed_Compressor). A ideia é ver qual é (__Coé__) a diferença entre 2 arquivos, se houver. Os arquivos são comparados por meio de um algoritmo de _diff_, sendo que ambos podem estar no formato _txt_ ou comprimidos no formato _greed_compressed_ (e combinações desses formatos entre os arquivos são aceitas, ou seja, é possível comparar um arquivo _txt_ com um _greed_compressed_ e vice-versa, por exemplo).
 
-Nesse sentido, Coé utiliza: grafos, algoritmo ambicioso de Huffman e programação dinâmica com algoritmo de _diff_, o qual baseia-se no problema da [_Longest common subsequence_](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem)
+Nesse sentido, Coé utiliza: grafos, algoritmo ambicioso de Huffman e programação dinâmica com algoritmo de _diff_, o qual baseia-se no problema da [_Longest common subsequence_](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem).
 
 
 **Linguagem**: Python 3.8<br>
@@ -97,8 +97,8 @@ Após fazer o clone do projeto, siga os passos abaixo :
 O uso da interface é auto explicativo.
 
 - Vídeo de apresentação:
-    - YouTube: [clique aqui](https://youtu.be/cgA7xKcNwN4)
-    - mp4: [pasta images](./images/terminal_video.mp4)
+    - YouTube: [clique aqui](https://youtu.be/zbRKyVH0VRk)
+    - mp4: [pasta images](./images/Como usar o projeto Coe.mp4)
 
 ## Problemas ? Sugestões ?
 
