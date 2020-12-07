@@ -66,24 +66,27 @@ class DiffView:
         return file
 
     def get_differences(self, c, x, y, i, j):
-        if i < 0 and j < 0:
-            return ""
-        elif i < 0:
-            self.get_differences(c, x, y, i, j-1)
-            self.is_different += 1
-            self.diff_lst.append("+ " + y[j])
-        elif j < 0:
-            self.get_differences(c, x, y, i-1, j)
-            self.is_different += 1
-            self.diff_lst.append("- " + x[i])
-        elif x[i] == y[j]:
-            self.get_differences(c, x, y, i-1, j-1)
-            self.diff_lst.append("  " + x[i])
-        elif c[i][j-1] >= c[i-1][j]:
-            self.get_differences(c, x, y, i, j-1)
-            self.is_different += 1
-            self.diff_lst.append("+ " + y[j])
-        elif c[i][j-1] < c[i-1][j]:
-            self.get_differences(c, x, y, i-1, j)
-            self.is_different += 1
-            self.diff_lst.append("- " + x[i])
+        while True:
+            if i < 0 and j < 0:
+                return ""
+            if i < 0:
+                self.is_different += 1
+                self.diff_lst.insert(0, "+ " + y[j])
+                j -= 1
+            elif j < 0:
+                self.is_different += 1
+                self.diff_lst.insert(0, "- " + x[i])
+                i -= 1
+            elif x[i] == y[j]:
+                self.diff_lst.insert(0, "  " + x[i])
+                i -= 1
+                j -= 1
+            elif c[i][j-1] >= c[i-1][j]:
+                self.is_different += 1
+                self.diff_lst.insert(0, "+ " + y[j])
+                j -= 1
+            elif c[i][j-1] < c[i-1][j]:
+                self.is_different += 1
+                self.diff_lst.insert(0, "- " + x[i])
+                i -= 1
+        
