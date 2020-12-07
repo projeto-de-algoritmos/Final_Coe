@@ -1,76 +1,104 @@
-# Truck Me
+# Greed Compressor
 
-Tema:
- - Grafos e Programação Dinâmica
+**Conteúdo da Disciplina**: Trabalho final<br>
+**Tema**: Compressão de dados & Diff
 
 ## Alunos
-|Matrícula | Aluno | Github |
+|Matrícula | Aluno | GitHub |
 | -- | -- | -- |
-| 15/0009011 |  Elias Bernardo | @ebmm01 |
-| 17/0141161 |  Erick Giffoni | @ErickGiffoni |
-
-<hr>
+| 15/0009011  |  Elias Bernardo | @ebmm01
+| 17/0141161  |  Erick Giffoni | @ErickGiffoni
 
 ## Sobre 
 
-**Linguagem**: **JavaScript**<br>
-**Framework**: **VueJS**
+__Coé__ faz compressão e descompressão de arquivos _txt_ além de adicionar uma nova funcionalidade ao [Greed Compressor](https://github.com/projeto-de-algoritmos/Greed_Compressor). A ideia é ver qual é (__Coé__) a diferença entre 2 arquivos, se houver. Os arquivos são comparados por meio de um algoritmo de _diff_, sendo que ambos podem estar no formato _txt_ ou comprimidos no formato _greed_compressed_ (e combinações desses formatos entre os arquivos são aceitas, ou seja, é possível comparar um arquivo _txt_ com um _greed_compressed_ e vice-versa, por exemplo).
 
-## Screenshots
+Nesse sentido, Coé utiliza: grafos, algoritmo ambicioso de Huffman e programação dinâmica com algoritmo de _diff_, o qual baseia-se no problema da [_Longest common subsequence_](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem)
 
 
-## Instalação 
+**Linguagem**: Python 3.8<br>
+**Biblioteca(s)**: [bitstring](https://pypi.org/project/bitstring/)
 
 ### Requisitos para utilizar esse projeto
 
 - conexão de internet;<br>
-- navegador web de escolha livre ;<br>
 - terminal/console/shell no computador;<br>
-- npm;<br>
+- pip & venv
+- **Python 3.8+** (necessariamente)
 - clonar o projeto;
 
 > Para clonar o projeto digite:
 
-    git clone TODO
+    git clone https://github.com/projeto-de-algoritmos/Final_Coe
+
+## Screenshots
+
+- Tela inicial
+
+![](images/gui_new.png)
+
+- Tela inicial ao escolher a opção de diff
+
+![](images/gui_diff.png)
+
+- Tela de sucesso ao realizar o diff entre dois arquivos
+
+![](images/gui_diff_result.png)
+
+- Tela de erro ao tentar fazer o diff entre arquivos de conteúdos idênticos
+
+![](images/gui_diff_no_diff.png)
+
+- Tela de sucesso ao descomprimir um arquivo
+
+![](images/gui_descrompressed.png)
+
+- Tela de sucesso ao comprimir um arquivo
+
+![](images/gui_compressed.png)
+
+- Tela de seleção de arquivo
+
+![](images/gui_file_select.png)
 
 
-### Instalando o frontend
+## Instalação 
 
-Para o front é necessário ter instalado o [node & npm](https://nodejs.org/en/).
+Após fazer o clone do projeto, siga os passos abaixo :
 
-Caso você esteja na raiz do projeto vá até a pasta do front-end digitando num terminal:
+- entre na raiz do projeto
 
-    cd frontend
+>
+    $ cd Final_Coe/
 
-E instale as dependências necessárias com o comando:
+- (Opcional) Caso não possua uma venv, gere uma:
 
-    npm install
+>
+    $ python -m venv <nome da venv>
 
-Após a instalação das dependências inicie o projeto:
+- (Opcional) Ative a venv caso não esteja:
 
-    npm run serve
+> Note que o comando abaixo pode variar de acordo com o sistema operacional. Em caso de dúvidas veja a [documentação](https://docs.python.org/pt-br/dev/library/venv.html)
+>
+    $ source venv/bin/activate
 
-Caso tudo ocorra com sucesso você terá uma tela parecida com a abaixo:
+- instale as dependências
 
-![](images/front_tuto.png)
+>
+    $ python -m pip install -r requirements.txt
 
-<hr>
+- execute o projeto
 
-## Uso
+>
+    $ python -m view.gui.main
 
-Antes de usar, faça a [instalação](#Instalação) do projeto.
+## Uso 
 
-Você pode assistir o vídeo a seguir para entender como utilizar
-o projeto.
+O uso da interface é auto explicativo.
 
-- Download na pasta `images/Como usar o projeto .mp4` ou
-- Assista pelo YouTube: [https://youtu.be/96jxTkvwqss](https://youtu.be/96jxTkvwqss)
-
-1. Abra o navegador web de sua escolha;<br>
-2. Digite na barra de busca o endereço informado pelo frontend (por padrão `http://localhost:8080/` caso você não tenha nenhuma outra aplicação utilizando essa porta);
-3. TODO
-
-<hr>
+- Vídeo de apresentação:
+    - YouTube: [clique aqui](https://youtu.be/cgA7xKcNwN4)
+    - mp4: [pasta images](./images/terminal_video.mp4)
 
 ## Problemas ? Sugestões ?
 

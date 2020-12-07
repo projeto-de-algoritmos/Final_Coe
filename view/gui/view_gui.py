@@ -14,13 +14,14 @@ DEC_RADIO: Final = "DEC_RADIO"
 DIFF_ENC_RADIO: Final = "DIFF_ENC_RADIO"
 HANDLE_ACTION: Final = "HANDLE_ACTION"
 DIFF_BUTTON: Final = "DIFF_BUTTON"
+DIFF_FRAME: Final = "DIFF_FRAME"
 
 class ViewGui(DecodeView, EncodeView, DiffView):
 
     def __init__(self):
         super(ViewGui, self).__init__()
         self.diff = False
-        self.window = sg.Window('Greed compressor', self.mount_interface(), finalize=True)
+        self.window = sg.Window('Coé - Greed compressor', self.mount_interface(), finalize=True)
         self.values = None
         self.event = None
         self.action_handlers = {
@@ -38,6 +39,7 @@ class ViewGui(DecodeView, EncodeView, DiffView):
             
             if self.event in (ENC_RADIO, DEC_RADIO, DIFF_ENC_RADIO):
                 self.window[DIFF_BUTTON].update(disabled = not self.values[DIFF_ENC_RADIO])
+                self.window[DIFF_FRAME].update(visible = self.values[DIFF_ENC_RADIO])
 
             if self.event == FILEBROWSE: 
                 self.window[FILE_PATH].update(self.values[FILEBROWSE]) 
@@ -50,6 +52,12 @@ class ViewGui(DecodeView, EncodeView, DiffView):
 
 
     def mount_interface(self):
+        diff_layout = [
+            [ sg.Input(key=FILEBROWSE_DIFF, enable_events=True, visible=False)],
+            [ sg.Text('Arquivo escolhido (diff):'), sg.Text(' '* 23),  sg.FileBrowse('Selecionar', key=DIFF_BUTTON, disabled=True, target=FILEBROWSE_DIFF,file_types=(("Text Files", "*.txt"), ("Compressed Files", "*.greed_compressed")))],
+            [ sg.Input(key=FILE_PATH_DIFF, readonly=True, justification='center')],
+        ]
+
         return [
             [ sg.Input(key=FILEBROWSE, enable_events=True, visible=False)],
             [ sg.Text('Arquivo escolhido:'), sg.Text(' '* 31),  sg.FileBrowse('Selecionar', target=FILEBROWSE,file_types=(("Text Files", "*.txt"), ("Compressed Files", "*.greed_compressed")))],
@@ -58,9 +66,7 @@ class ViewGui(DecodeView, EncodeView, DiffView):
               sg.Radio('Descomprimir', ENC_TYPE, key=DEC_RADIO, enable_events=True), 
               sg.Radio('Diff', ENC_TYPE, key=DIFF_ENC_RADIO, enable_events=True)
             ],
-            [ sg.Input(key=FILEBROWSE_DIFF, enable_events=True, visible=False)],
-            [ sg.Text('Arquivo escolhido (diff):'), sg.Text(' '* 23),  sg.FileBrowse('Selecionar', key=DIFF_BUTTON, disabled=True, target=FILEBROWSE_DIFF,file_types=(("Text Files", "*.txt"), ("Compressed Files", "*.greed_compressed")))],
-            [ sg.Input(key=FILE_PATH_DIFF, readonly=True, justification='center')],
+            [sg.Frame('Diff', diff_layout, key=DIFF_FRAME, font='Any 12', visible=False)],
             [ sg.Button('Confirmar', key=HANDLE_ACTION), sg.Text(' '* 48), sg.Button('Sair')]
         ]
     

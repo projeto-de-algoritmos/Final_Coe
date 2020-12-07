@@ -23,14 +23,26 @@ class DiffView:
         self.diff_lst = []
         self.is_different = 0
 
+        if not file_1  or not file_2:
+            self.show_popup("São necessários dois arquivos para o diff!!", "Por favor, escolha dois arquivos (comprimidos ou não) e tente novamente")
+            return
+
         file1 = self.handle_file(file_1)
         file2 = self.handle_file(file_2)
 
         c = self.diff_lib.lcslen(file1, file2)
         self.get_differences(c, file1, file2, len(file1) - 1, len(file2) - 1)
-
-        out_path = os.path.join(script_dir, "../../../diff/") + file_1.split("/")[-1] + "__" + file_1.split("/")[-1] + "__diff"
+    
+        out_path = os.path.join(script_dir, "../../../diff/") + "diff.txt"
         if self.is_different > 0:
+            arquivos_comparados = \
+                "==================================================== \n" + \
+                "Arquivos comparados: \n" + \
+                f"{file_1.split('/')[-1]} e \n" + \
+                f"{file_2.split('/')[-1]} \n\n" + \
+                "==================================================== \n"
+
+            self.diff_lst.insert(0, arquivos_comparados)
             File.save_file(
                 out_path, 
                 file_content= "".join(self.diff_lst), 

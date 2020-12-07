@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "module": "view.gui.main",
-            "pythonPath": "/home/eliasb/Documentos/PA-fga/Final_Truck-Me/venv/bin/python"
+            "python": "/home/eliasb/Documentos/PA-fga/Final_Truck-Me/venv/bin/python"
         }
     ]
 }
