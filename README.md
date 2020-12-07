@@ -98,7 +98,7 @@ O uso da interface é auto explicativo.
 
 - Vídeo de apresentação:
     - YouTube: [clique aqui](https://youtu.be/zbRKyVH0VRk)
-    - mp4: [pasta images](./images/Como usar o projeto Coe.mp4)
+    - mp4: [pasta images](https://github.com/projeto-de-algoritmos/Final_Coe/blob/master/images/Como%20usar%20o%20projeto%20Coe.mp4)
 
 ## Problemas ? Sugestões ?
 
